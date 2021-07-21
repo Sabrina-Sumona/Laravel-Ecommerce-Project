@@ -15,22 +15,24 @@
 
 <div class="header">
     <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="{{ url('/') }}"><img src= "{{ asset('images/logo.png') }}" alt="logo" width="125px"></a>
-            </div>
-            <nav>
-                <ul id="MenuItems">
-                    <li><a href="{{ url('/') }}">Home</a></li>
-                    <li><a href="{{ url('/products') }}">Products</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="{{ url('/account') }}">Account</a></li>
-                </ul>
-            </nav>
-            <a href="{{ url('/cart') }}"><img src= "{{ asset('images/cart.png') }}" width="30px" height="30px"></a>
-            <img src= "{{ asset('images/menu.png') }}" class="menu-icon" onclick="menutoggle()">
-        </div>
+      <div class="container">
+          <div class="navbar">
+              <div class="logo">
+                  <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
+              </div>
+              <nav>
+                  <ul id="MenuItems">
+                      <li><a href="{{ url('/')}}">Home</a></li>
+                      <li><a href="{{ url('/products')}}">Products</a></li>
+                      <li><a href="">About</a></li>
+                      <li><a href="">Contact</a></li>
+                      <li><a href="{{ url('/account')}}" >Account</a></li>
+                  </ul>
+              </nav>
+              <a href="{{ url('/cart')}}" ><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
+              <img src="images/menu.png')}}" class="menu-icon" onclick="menutoggle()"/>
+          </div>
+      </div>
         <div class="row">
             <div class="col-2">
                 <h1>Give Your Workout <br> A New Style!</h1>
@@ -81,7 +83,7 @@
             <p>$50.00</p>
         </div>
         <div class="col-4">
-            <img src="{{ asset('images/product-2.jpg') }}">
+            <img src="{{ asset('images/product-2.jpg')}}">
             <h4>Red Printed T-Shirt</h4>
             <div class="rating">
                 <i class="fa fa-star"></i>
@@ -93,7 +95,7 @@
             <p>$50.00</p>
         </div>
         <div class="col-4">
-            <img src="{{ asset('images/product-3jpg') }}">
+            <img src="{{ asset('images/product-3.jpg') }}">
             <h4>Red Printed T-Shirt</h4>
             <div class="rating">
                 <i class="fa fa-star"></i>
