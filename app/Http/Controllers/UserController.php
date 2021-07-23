@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
 use Illuminate\Http\Request;
 
@@ -34,7 +35,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      // return $request->all();
+      User::insert([
+          'name'=>$request->has('uname')? $request->get('uname'):'',
+          'email'=>$request->has('email')? $request->get('email'):'',
+          'mobile'=>$request->has('mobile')? $request->get('mobile'):'',
+          'password'=>$request->has('pass')? $request->get('pass'):'',
+      ]);
+
+      return redirect('/products');
     }
 
     /**
