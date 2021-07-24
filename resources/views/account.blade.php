@@ -47,9 +47,9 @@
                             <span onclick="login()">Login</span>
                             <hr id="Indicator">
                         </div>
-                        <form id="LoginForm" action="/users" method="GET">
+                        <form id="LoginForm" method="GET" action="/users">
                             @csrf
-                            <input type="email" name="email" placeholder="Email">
+                            <input type="text" name="uname" placeholder="Username">
                             <input type="password" name="pass" placeholder="Password">
                             <button type="submit" class="btn">Login</button>
                             <a href="">Forget Password</a>

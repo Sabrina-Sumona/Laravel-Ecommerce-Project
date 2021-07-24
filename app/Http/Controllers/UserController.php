@@ -12,9 +12,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return "users";
+      $uName= $request->has('uname')?$request->get('uname'):'';
+      $pass= $request->has('pass')?$request->get('pass'):'';
+
+      $userInfo= User::where('name','=', $uName)->where('password', '=', $pass)->first();
+
+      if(isset($userInfo)&& $userInfo!=null){
+       return redirect('/products');
+      } else{
+       return redirect()->back();
+      }
     }
 
     /**
