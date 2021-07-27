@@ -449,6 +449,16 @@ form a{
     transition: transform 1s;
 }
 
+.leftcolumn{
+    width: 75%;
+    float: left;
+}
+
+.rightcolumn{
+    width: 25%;
+    float: right;
+}
+
 /* Media query for menu */
 @media only screen and (max-width: 800px){
 

@@ -20,7 +20,7 @@ class UserController extends Controller
       $userInfo= User::where('name','=', $uName)->where('password', '=', $pass)->first();
 
       if(isset($userInfo)&& $userInfo!=null){
-       return redirect('/products');
+       return redirect('/admin_products');
       } else{
        return redirect()->back();
       }
@@ -52,7 +52,7 @@ class UserController extends Controller
           'password'=>$request->has('pass')? $request->get('pass'):'',
       ]);
 
-      return redirect('/products');
+      return redirect('/admin_products');
     }
 
     /**
@@ -98,5 +98,10 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addProduct()
+    {
+      return view('add_product');
     }
 }
