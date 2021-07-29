@@ -37,4 +37,4 @@ Route::resource('/products', \App\Http\Controllers\ProductController::class);
 
 Route::resource('/users', \App\Http\Controllers\UserController::class);
 
-Route::get('/admin_products', '\App\Http\Controllers\UserController@addProduct');
+Route::get('/admin_products', '\App\Http\Controllers\ProductController@addProduct');
