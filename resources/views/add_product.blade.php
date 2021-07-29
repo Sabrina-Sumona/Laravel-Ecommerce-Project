@@ -40,6 +40,10 @@
         <div class="alert alert-success" style="text-align: center;">
             {{ session()->get('success') }}
         </div>
+    @else
+        <div class="alert alert-danger" style="text-align: center;">
+            {{ session()->get('error') }}
+        </div>
     @endif
     <div class="container">
 
@@ -59,7 +63,7 @@
                         <input type="text" name="name" placeholder="Product Name">
                         <input type="text" name="price" placeholder="Price">
                         <input type="text" name="amount" placeholder="Amount">
-                        <input type="file" name="image">
+                        <input type="file" name="images[]" multiple>
                         <button type="submit" class="btn">Add Product</button>
                     </form>
                 </div>
