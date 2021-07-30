@@ -14,52 +14,58 @@
 
 <body>
     <div class="container">
-      <div class="container">
-          <div class="navbar">
-              <div class="logo">
-                  <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
-              </div>
-              <nav>
-                  <ul id="MenuItems">
-                      <li><a href="{{ url('/')}}">Home</a></li>
-                      <li><a href="{{ url('/products')}}">Products</a></li>
-                      <li><a href="">About</a></li>
-                      <li><a href="">Contact</a></li>
-                      <li><a href="{{ url('/account')}}" >Account</a></li>
-                  </ul>
-              </nav>
-              <a href="{{ url('/cart')}}" ><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
-              <img src="images/menu.png')}}" class="menu-icon" onclick="menutoggle()"/>
-          </div>
-      </div>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="{{ url('/')}}">Home</a></li>
+                    <li><a href="{{ url('/products')}}">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="{{ url('/account')}}">Account</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url('/cart')}}"><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
+            <img src="{{ asset('images/menu.png')}}" class="menu-icon" onclick="menutoggle()">
+        </div>
     </div>
 
     <!-- Single Products -->
     <div class="small-container single-product">
         <div class="row">
             <div class="col-2">
-                <img src="{{ asset('images/gallery-1.jpg')}}" width="100%" id="ProductImg">
+                <img src="{{ asset($images[0])}}" width="100%" id="ProductImg">
 
                 <div class="small-img-row">
-                    <div class="small-img-col">
-                        <img src="{{ asset('images/gallery-1.jpg')}}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="{{ asset('images/gallery-2.jpg')}}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="{{ asset('images/gallery-3.jpg')}}" width="100%" class="small-img">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="{{ asset('images/gallery-4.jpg')}}" width="100%" class="small-img">
-                    </div>
+                    @if(isset($images[0]))
+                        <div class="small-img-col">
+                            <img src="{{ asset($images[0])}}" height="147" width="110" class="small-img">
+                        </div>
+                    @endif
+                    @if(isset($images[1]))
+                        <div class="small-img-col">
+                            <img src="{{ asset($images[1])}}" height="147" width="110" class="small-img">
+                        </div>
+                    @endif
+                    @if(isset($images[2]))
+                        <div class="small-img-col">
+                            <img src="{{ asset($images[2])}}" height="147" width="110" class="small-img">
+                        </div>
+                    @endif
+                    @if(isset($images[3]))
+                        <div class="small-img-col">
+                            <img src="{{ asset($images[3])}}" height="147" width="110" class="small-img">
+                        </div>
+                    @endif
                 </div>
 
             </div>
             <div class="col-2">
-                <p>Home / T-Shirt</p>
-                <h1>Red Printed T-Shirt by HRX</h1>
-                <h4>$50.00</h4>
+                <p>{{$product->category->category_name}}</p>
+                <h1>{{$product->name}}</h1>
+                <h4>{{$product->price}}</h4>
                 <select>
                     <option>Select Size</option>
                     <option>XXL</option>
@@ -73,8 +79,7 @@
 
                 <h3>Product Details <i class="fa fa-indent"></i></h3>
                 <br>
-                <p>Give your summer wardrobe a style upgrade with the HRX Men's Active T-Shirt. Team it with a pair of
-                    shorts for your morning workout or a denims for an evening out with the guys.</p>
+                <p>{{$product->details}}</p>
             </div>
         </div>
     </div>

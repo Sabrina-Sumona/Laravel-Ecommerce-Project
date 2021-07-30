@@ -72,7 +72,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+      // dd($product);
+      $images= explode('|', $product->image);
+      return view('product_details', compact('product', 'images'));
     }
 
     /**
