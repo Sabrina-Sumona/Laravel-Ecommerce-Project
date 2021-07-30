@@ -59,7 +59,7 @@ p{
     line-height: 60px;
     margin: 25px 0;
 }
-.btn{
+.btn, .btn-sm{
     display: inline-block;
     background: #ff523b;
     color: white;
@@ -68,7 +68,7 @@ p{
     border-radius: 30px;
     transition: background 0.5s;
 }
-.btn:hover{
+.btn:hover, .btn-sm:hover{
     background: #563434;
 }
 .header{
@@ -427,8 +427,14 @@ form .btn{
     cursor: pointer;
     margin: 10px 0;
 }
-form .btn:focus{
+form .btn:focus, .btn-sm:focus{
     outline: none;
+}
+form .btn-sm{
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0;
 }
 #LoginForm{
     left: 0;
