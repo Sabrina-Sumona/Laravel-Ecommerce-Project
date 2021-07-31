@@ -14,24 +14,22 @@
 
 <body>
     <div class="container">
-      <div class="container">
-          <div class="navbar">
-              <div class="logo">
-                  <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
-              </div>
-              <nav>
-                  <ul id="MenuItems">
-                      <li><a href="{{ url('/')}}">Home</a></li>
-                      <li><a href="{{ url('/products')}}">Products</a></li>
-                      <li><a href="">About</a></li>
-                      <li><a href="">Contact</a></li>
-                      <li><a href="{{ url('/account')}}" >Account</a></li>
-                  </ul>
-              </nav>
-              <a href="{{ url('/cart')}}" ><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
-              <img src="images/menu.png')}}" class="menu-icon" onclick="menutoggle()"/>
-          </div>
-      </div>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="{{ url('/')}}">Home</a></li>
+                    <li><a href="{{ url('/products')}}">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="{{ url('/account')}}" >Account</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url('/cart')}}" ><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
+            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
     </div>
 
     <!-- Cart items details -->
@@ -42,65 +40,32 @@
                 <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
+            @foreach($carts as $cart)
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="{{ asset('images/buy-1.jpg')}}">
+                        <img src="{{ asset($cart->options['image'])}}">
                         <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small>
+                            <p>{{$cart->name}}</p>
+                            <small>Price: ${{$cart->price}}</small>
                             <br>
                             <a href="">Remove</a>
                         </div>
                     </div>
                 </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
+                <td>{{$cart->qty}}</td>
+                <td>{{$cart->options['total']}}</td>
             </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="{{ asset('images/buy-2.jpg')}}">
-                        <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small>
-                            <br>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr>
-            <tr>
-                <td>
-                    <div class="cart-info">
-                        <img src="{{ asset('images/buy-3.jpg')}}">
-                        <div>
-                            <p>Red Printed T-Shirt</p>
-                            <small>Price: $50.00</small>
-                            <br>
-                            <a href="">Remove</a>
-                        </div>
-                    </div>
-                </td>
-                <td><input type="number" value="1"></td>
-                <td>$50.00</td>
-            </tr>
+            @endforeach
         </table>
         <div class="total-price">
             <table>
                 <tr>
                     <td>Subtotal</td>
-                    <td>$200.00</td>
+                    <td>{{$subTotal}}</td>
                 </tr>
                 <tr>
-                    <td>Tax</td>
-                    <td>$35.00</td>
-                </tr>
-                <tr>
-                    <td>Total</td>
-                    <td>$230.00</td>
+                    <td><button class="btn btn-success">Checkout</button></td>
                 </tr>
             </table>
         </div>
