@@ -67,7 +67,7 @@
                 <h1>{{$product->name}}</h1>
                 <h4>Price: {{$product->price}} <small> BDT</small></h4>
 
-                <form method="POST" action="add-to-cart">
+                <form method="POST" action="/add-to-cart">
                       @csrf
                       <select name="size">
                           <option value="">Select Size</option>
@@ -80,7 +80,7 @@
                       <input type="hidden" name="pid" value="{{$product->id}}">
                       <input type="hidden" name="price" value="{{$product->price}}">
                       <input type="hidden" name="name" value="{{$product->name}}">
-                      <label>Amount</label><input name="amount" type="number" value="1">
+                      <label>Amount</label><input name="quantity" type="number" value="1">
                       <br>
                       <button type="submit" class="btn-sm">Add To Cart</button>
                   </form>
