@@ -163,4 +163,9 @@ class ProductController extends Controller
 
         return view('cart', compact('carts', 'subTotal'));
     }
+
+    public function removeItem($rowId){
+        Cart::remove($rowId);
+        return redirect('/cart')->with('success', 'Product Removed Successfully!');
+    }
    }

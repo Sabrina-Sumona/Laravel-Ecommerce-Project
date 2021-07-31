@@ -42,3 +42,5 @@ Route::get('/admin_products', '\App\Http\Controllers\ProductController@addProduc
 Route::post('/add-to-cart', '\App\Http\Controllers\ProductController@addToCart');
 
 Route::get('/cart', '\App\Http\Controllers\ProductController@viewCart');
+
+Route::get('/remove-item/{rowId}', '\App\Http\Controllers\ProductController@removeItem');
