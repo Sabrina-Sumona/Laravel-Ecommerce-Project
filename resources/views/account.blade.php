@@ -37,11 +37,16 @@
 
     <!-- Account Page -->
     <div class="account-page">
-      @if(session()->has('failure'))
-          <div class="alert alert-danger" style="text-align: center;">
-              {{ session()->get('failure') }}
+        @if(session()->has('failure'))
+            <div class="alert alert-danger" style="text-align: center;">
+                {{ session()->get('failure') }}
+            </div>
+        @endif
+        @if(session()->has('error'))
+          <div class="alert alert-warning"  style="text-align: center;">
+              {{ session()->get('error') }}
           </div>
-      @endif
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-2">
@@ -68,7 +73,7 @@
                             <input type="email" name="email" placeholder="Email">
                             <input type="text" name="mobile" placeholder="Mobile">
                             <input type="password" name="pass" placeholder="Password" required>
-                            <button type="submit" class="btn">Register</button>
+                            <button type="submit" class="btn" name="reg">Register</button>
                         </form>
                     </div>
                 </div>
