@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/products', function () {
 //     return view('products');
@@ -44,3 +44,5 @@ Route::post('/add-to-cart', '\App\Http\Controllers\ProductController@addToCart')
 Route::get('/cart', '\App\Http\Controllers\ProductController@viewCart');
 
 Route::get('/remove-item/{rowId}', '\App\Http\Controllers\ProductController@removeItem');
+
+Route::get('/', 'App\Http\Controllers\ProductController@home');

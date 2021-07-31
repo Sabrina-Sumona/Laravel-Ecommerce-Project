@@ -63,7 +63,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <p>{{$product->price}}</p>
+                    <p><small>Price:</small> {{$product->price}} <small> BDT</small></p>
                 </div>
             @endforeach
         </div>

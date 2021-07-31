@@ -16,28 +16,26 @@
 
 <div class="header">
     <div class="container">
-      <div class="container">
-          <div class="navbar">
-              <div class="logo">
-                  <a href="{{ url('/')}}"><img src="{{ asset('images/logo.png')}}" alt="logo" width="125px"></a>
-              </div>
-              <nav>
-                  <ul id="MenuItems">
-                      <li><a href="{{ url('/')}}">Home</a></li>
-                      <li><a href="{{ url('/products')}}">Products</a></li>
-                      <li><a href="">About</a></li>
-                      <li><a href="">Contact</a></li>
-                      <li><a href="{{ url('/account')}}" >Account</a></li>
-                  </ul>
-              </nav>
-              <a href="{{ url('/cart')}}" ><img src="{{ asset('images/cart.png')}}" width="30px" height="30px"></a>
-              <img src="images/menu.png')}}" class="menu-icon" onclick="menutoggle()"/>
-          </div>
-      </div>
+        <div class="navbar">
+            <div class="logo">
+                <a href="{{ url('/') }}"><img src= "{{ asset('images/logo.png') }}" alt="logo" width="125px"></a>
+            </div>
+            <nav>
+                <ul id="MenuItems">
+                    <li><a href="{{ url('/') }}">Home</a></li>
+                    <li><a href="{{ url('/products') }}">Products</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Contact</a></li>
+                    <li><a href="{{ url('/account') }}">Account</a></li>
+                </ul>
+            </nav>
+            <a href="{{ url('/cart') }}"><img src= "{{ asset('images/cart.png') }}" width="30px" height="30px"></a>
+            <img src= "{{ asset('images/menu.png') }}" class="menu-icon" onclick="menutoggle()">
+        </div>
         <div class="row">
             <div class="col-2">
                 <h1>Give Your Workout <br> A New Style!</h1>
-                <p>Success isn't always about greatness. It;s about consistency. Consistent <br> hard work gains
+                <p>Success isn't always about greatness. It's about consistency. Consistent <br> hard work gains
                     success. Greatness will come.</p>
                 <a href="" class="btn">Explore Now &#8594;</a>
             </div>
@@ -71,9 +69,11 @@
 <div class="small-container">
     <h2 class="title">Featured Products</h2>
     <div class="row">
+        @foreach($featured_products as $product)
         <div class="col-4">
-            <a href="{{ url('/product_details') }}"><img src="{{ asset('images/product-1.jpg') }}"></a>
-            <h4>Red Printed T-Shirt</h4>
+            <a href="{{ url('/products/'.$product->id) }}"><img src="{{ asset(explode('|', $product->image)[0]) }}" height="300" width="200"></a>
+
+            <h4>{{$product->name}}</h4>
             <div class="rating">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -81,71 +81,28 @@
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-o"></i>
             </div>
-            <p>$50.00</p>
+            <p><small>Price:</small> {{$product->price}} <small> BDT</small></p>
         </div>
-        <div class="col-4">
-            <img src="{{ asset('images/product-2.jpg')}}">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{{ asset('images/product-3.jpg') }}">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{{ asset('images/product-4.jpg') }}">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
+        @endforeach
     </div>
     <h2 class="title">Latest Products</h2>
     <div class="row">
-        <div class="col-4">
-            <img src="{{ asset('images/product-5.jpg') }}">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
+        @foreach($latest_products as $product)
+            <div class="col-4">
+                <a href="{{ url('/products/'.$product->id) }}"><img src="{{ asset(explode('|', $product->image)[0]) }}" height="300" width="200"></a>
+
+                <h4>{{$product->name}}</h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p><small>Price:</small> {{$product->price}} <small> BDT</small></p>
             </div>
-            <p>$50.00</p>
-        </div>
-        <div class="col-4">
-            <img src="{{ asset('images/product-6.jpg') }}">
-            <h4>Red Printed T-Shirt</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$50.00</p>
-        </div>
+        @endforeach
+
     </div>
 </div>
 

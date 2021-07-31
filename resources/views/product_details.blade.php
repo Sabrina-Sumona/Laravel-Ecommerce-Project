@@ -65,7 +65,7 @@
             <div class="col-2">
                 <p>{{$product->category->category_name}}</p>
                 <h1>{{$product->name}}</h1>
-                <h4>Price: {{$product->price}} <small> BDT</small></h4>
+                <h4><small>Price:</small> {{$product->price}} <small> BDT</small></h4>
 
                 <form method="POST" action="/add-to-cart">
                       @csrf
