@@ -20,9 +20,11 @@ class UserController extends Controller
       $userInfo= User::where('name','=', $uName)->where('password', '=', $pass)->first();
 
       if(isset($userInfo)&& $userInfo!=null){
-       return redirect('/admin_products');
+       // return redirect('/admin_products');
+         $product_controller= new ProductController();
+          return $product_controller->addProduct();
       } else{
-       return redirect()->back()->with('failure', 'Username or password is not matched!!');
+         return redirect()->back()->with('failure', 'Username or password is not matched!!');
       }
     }
 
