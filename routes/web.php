@@ -52,3 +52,5 @@ Route::get('/remove-item/{rowId}', '\App\Http\Controllers\ProductController@remo
 Route::get('/', 'App\Http\Controllers\ProductController@home');
 
 Route::get('/admin_products', '\App\Http\Controllers\ProductController@addProduct')->middleware('auth');
+
+Route::post('/products/validate-amount', '\App\Http\Controllers\ProductController@validateAmount');
