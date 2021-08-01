@@ -47,6 +47,15 @@
               {{ session()->get('error') }}
           </div>
         @endif
+        @if($errors->any())
+         <div class="alert alert-warning alert-dismissible fade show" style="text-align: center;">
+             <ul>
+                 @foreach($errors->all() as $error)
+                     <li>{{ $error }}</li>
+                 @endforeach
+             </ul>
+         </div>
+       @endif
         <div class="container">
             <div class="row">
                 <div class="col-2">
@@ -69,10 +78,10 @@
 
                         <form id="RegForm" action="/users" method="POST">
                             @csrf
-                            <input type="text" name="uname" placeholder="Username" required>
+                            <input type="text" name="uname" placeholder="Username">
                             <input type="email" name="email" placeholder="Email">
                             <input type="text" name="mobile" placeholder="Mobile">
-                            <input type="password" name="pass" placeholder="Password" required>
+                            <input type="password" name="pass" placeholder="Password">
                             <button type="submit" class="btn" name="reg">Register</button>
                         </form>
                     </div>
